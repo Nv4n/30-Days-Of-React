@@ -363,10 +363,55 @@ class Stats {
     }
 
     mode() {
-        const sorted = Array.from(this.ages).sort();
-        const groupped = Array.prototype.
+        const groupped = {};
+        const max = { 'key': 0, 'val': Number.MIN_VALUE };
+        for (const key of ages) {
+            groupped[key] ??= 0;
+
+            if (max.val < ++groupped[key]) {
+                max.key = key;
+                max.val = groupped[key];
+            }
+        }
+        return { 'mode': max.key, 'count': max.val };
+    }
+    var() {
+        const mean = this.mean();
+        let sum = 0;
+        for (const age of this.ages) {
+            sum = sum + (age - mean) ** 2;
+        }
+
+        return sum / this.ages.length;
+    }
+    std() {
+        return Math.round(Math.sqrt(this.var()) * 10) / 10;
+    }
+    freqDist() {
+        const groupped = {};
+        for (const key of ages) {
+            groupped[key] ??= 0;
+            groupped[key]++;
+        }
+        const sorted = Object.entries(groupped).sort((o1, o2) => {
+            if (o1[1] > o2[1]) {
+                return -1;
+            }
+            if (o1[1] < o2[1]) {
+                return 1;
+            }
+            return 0;
+        });
+        let result = [];
+
+        for (const age of sorted) {
+            result.push([age[0] / this.ages.length * 100.0, age[0]]);
+        }
+        return result;
     }
 }
+
+
 const statistics = new Stats(ages);
 
 console.log('Count:', statistics.count()); // 25
@@ -377,7 +422,6 @@ console.log('Range: ', statistics.range()); // 14
 console.log('Mean: ', statistics.mean()); // 30
 console.log('Median: ', statistics.median()); // 29
 console.log('Mode: ', statistics.mode()); // {'mode': 26, 'count': 5}
-// console.log('Variance: ', statistics.var()); // 17.5
-// console.log('Standard Deviation: ', statistics.std()); // 4.2
-// console.log('Variance: ', statistics.var()); // 17.5
-// console.log('Frequency Distribution: ', statistics.freqDist()); // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+console.log('Variance: ', statistics.var()); // 17.5
+console.log('Standard Deviation: ', statistics.std()); // 4.2
+console.log('Frequency Distribution: ', statistics.freqDist()); // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
