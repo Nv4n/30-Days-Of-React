@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2,
+span,
+p {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+:root {
+    --blue: #2ACFCF;
+}
+
+.App {
+    padding: 1em;
+    background-color: #F0F1F7;
+}
+
+.app-container {
+    padding: 1em;
+
+    border-radius: 4px;
+    background: white;
+}
+
+.profile-pic {
+    --size: 10em;
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 50%;
+}
+
+.label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+    padding: 0.5em 0;
+}
+
+.label {
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    word-spacing: 0.5em;
+}
+
+.status-label {
+    --size: 1.25em;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    box-sizing: border-box;
+
+    font-size: 0.7em;
+    text-align: center;
+    user-select: none;
+
+    border-radius: 50%;
+    background-color: var(--blue);
+    color: white;
+}
+
+.role-label {
+    display: inline-block;
+    padding: 1em 0;
+
+    font-size: 1em;
+}
+
+.skill-container {
+    display: flex;
+    gap: 0.5em;
+
+    list-style: none;
+}
+
+.skill-label {
+    width: fit-content;
+    min-width: 1.5em;
+
+    padding: 0.25em 0.5em;
+
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95em;
+    text-align: center;
+
+    color: white;
+    background-color: var(--blue);
+    border-radius: 8px;
+}
+
+.time {
+    --val: 130;
+    color: rgb(var(--val), var(--val), var(--val));
+}
+
+.upper-case {
+    text-transform: uppercase;
+}

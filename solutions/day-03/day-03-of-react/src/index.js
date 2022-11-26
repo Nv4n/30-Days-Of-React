@@ -4,15 +4,18 @@ import './index.css';
 // import App from './App';
 // import level from './level0';
 import level2JSX from './level2';
+import level3JSX from './level3';
 import reportWebVitals from './reportWebVitals';
 
 // const level0 = level();
 const level2 = level2JSX();
+const level3 = level3JSX();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {level2}
+    {level3}
     {/* {level0} */}
     {/* <App /> */}
   </React.StrictMode>
