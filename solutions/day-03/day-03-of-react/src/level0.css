@@ -1,0 +1,23 @@
+.header-wrapper {
+    background-color: #61DBFB;
+    font-family: "Helvetica Neue";
+    padding: 25px;
+    line-height: 1.5em;
+}
+
+:root {
+    --img-size: 20em;
+}
+
+.profile-pic {
+    width: var(--img-size);
+    height: var(--img-size);
+}
+
+.main-wrapper {
+    background-color: #F3F0F5;
+}
+
+.footer-wrapper {
+    background-color: #61DBFB;
+}
