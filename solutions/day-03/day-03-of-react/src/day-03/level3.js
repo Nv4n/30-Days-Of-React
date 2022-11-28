@@ -16,7 +16,7 @@ const skills = (
 
 const date = new Date().toDateString("Mar 25 2015");
 
-function level3() {
+const Level3 = () => {
     return (
         <div className='App'>
             <div className='app-container'>
@@ -31,7 +31,7 @@ function level3() {
                 <span className='time'>Joined on {date}</span>
             </div>
         </div>
-    );
+    )
 }
 
-export default level3
+export default Level3
